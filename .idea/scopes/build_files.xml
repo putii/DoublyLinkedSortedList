@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="build_files" pattern="file[*]:out//*||file[SOnB_Homeworks]:test//*||file[*]:cmake-build-*//*" />
+</component>

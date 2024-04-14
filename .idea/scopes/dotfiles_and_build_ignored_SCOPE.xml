@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="dotfiles_and_build_ignored_SCOPE" pattern="file[*]:*/&amp;&amp;!file[*]:.idea//*&amp;&amp;!file[*]:cmake-build-*//*&amp;&amp;!file[*]:out//*&amp;&amp;!file[*]:_deps//*" />
+</component>

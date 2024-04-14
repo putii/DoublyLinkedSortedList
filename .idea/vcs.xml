@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-clang-debug/_deps/catch2-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-clang-debug/_deps/cli11-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-clang-debug/_deps/fmt-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-clang-debug/_deps/ftxui-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-clang-debug/_deps/spdlog-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-clang-debug/_deps/tools-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-gcc-debug/_deps/catch2-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-gcc-debug/_deps/cli11-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-gcc-debug/_deps/fmt-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-gcc-debug/_deps/ftxui-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-gcc-debug/_deps/spdlog-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/out/build/unixlike-gcc-debug/_deps/tools-src" vcs="Git" />
+  </component>
+</project>
