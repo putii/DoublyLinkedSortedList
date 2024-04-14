@@ -24,7 +24,7 @@ target_include_directories(DoublyLinkedSortedList
 
 ################### MAIN BINARY ###################
 # Create executable target for your main source file
-add_executable(LK1 main.cpp)
+add_executable(main main.cpp)
 
 # Link the library to the executable
-target_link_libraries(LK1 PRIVATE DoublyLinkedSortedList)
+target_link_libraries(main PRIVATE DoublyLinkedSortedList)

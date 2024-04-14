@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <iostream>
+// #include <iostream>
 #include <ranges>
 
 #include <DoublyLinkedSortedList.hpp>
@@ -109,4 +109,54 @@ TEST(DoublyLinkedSortedList, RemoveList) {
 
   EXPECT_TRUE(list.empty());
   EXPECT_EQ(list.size(), 0);
+}
+
+TEST(DoublyLinkedSortedList, showLeftToRight) {
+  DoublyLinkedSortedList list;
+
+  testing::internal::CaptureStdout();
+  list.showLeftToRight();
+  std::string stdOutput = testing::internal::GetCapturedStdout();
+  EXPECT_EQ(stdOutput, "H{  }T\n");
+
+  const std::array vals{ 1, 2, 3, 4 };
+  for (auto val : vals) { //
+    list.addValue(val);
+  }
+
+  testing::internal::CaptureStdout();
+  list.showLeftToRight();
+  stdOutput = testing::internal::GetCapturedStdout();
+  EXPECT_EQ(stdOutput, "H{ 1, 2, 3, 4 }T\n");
+}
+
+
+TEST(DoublyLinkedSortedList, showRightToLeft) {
+  DoublyLinkedSortedList list;
+
+  testing::internal::CaptureStdout();
+  list.showRightToLeft();
+  std::string stdOutput = testing::internal::GetCapturedStdout();
+  EXPECT_EQ(stdOutput, "T{  }H\n");
+
+  const std::array vals{ 1, 2, 3, 4 };
+  for (auto val : vals) { //
+    list.addValue(val);
+  }
+
+  testing::internal::CaptureStdout();
+  list.showRightToLeft();
+  stdOutput = testing::internal::GetCapturedStdout();
+  EXPECT_EQ(stdOutput, "T{ 4, 3, 2, 1 }H\n");
+}
+
+TEST(DoublyLinkedSortedList, longerList) {
+  const std::array vals{ 1, 3, 2024, 2, 4, 1000, 500, 100, 900 };
+  DoublyLinkedSortedList list;
+  for (auto val : vals) { //
+    list.addValue(val);
+  }
+
+  EXPECT_FALSE(list.empty());
+  EXPECT_EQ(list.size(), vals.size());
 }

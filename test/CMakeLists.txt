@@ -4,10 +4,11 @@ project(CmakeConfigPackageTests
         LANGUAGES CXX)
 
 
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g") # may not be needed
 #################### GOOGLE TESTS ####################
 
 add_executable(testsTarget tests.cpp)
-
+enable_testing()
 # Printing of set doublyLinkedList_warnings and doublyLinkedList_options INTERFACE libraries properties
 
 get_target_property(WARNINGS doublyLinkedList_warnings INTERFACE_COMPILE_OPTIONS)
@@ -22,3 +23,5 @@ target_link_libraries(testsTarget
 
             gtest_main
             DoublyLinkedSortedList)
+
+add_test(NAME mainZeroArgs COMMAND main)

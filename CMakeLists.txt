@@ -169,7 +169,7 @@ include(cmake/PackageProject.cmake)
 # we know we want to ship
 doublyLinkedList_package_project(
         TARGETS # this is type of multivalue arg, it says that the next 3 args are values of this multi-val TARGET arg, i.e. they are target to be build, i.e. "please build me this intro target(main.cpp) with flags described in doublyLinkedList_warnings and doublyLinkedList_options library interfaces"
-        LK1 # target created by "add_executable(intro main.cpp)" command in src/ftxui_sample/CMakeLists.txt
+        main # target created by "add_executable(main main.cpp)" command in src/CMakeLists.txt
         doublyLinkedList_options # cmake interface library, i.e. options flags
         doublyLinkedList_warnings # cmake interface library, i.e. warnings flags
         # FIXME: this does not work! CK

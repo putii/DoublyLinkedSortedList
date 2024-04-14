@@ -9,7 +9,7 @@ class DoublyLinkedSortedList {
     std::weak_ptr<Node> tail;
 
     void showLeftToRightHelper(const std::shared_ptr<Node>& node);
-    void showRightToLeftHelper();
+    void showRightToLeftHelper(const std::weak_ptr<Node>& node);
     int sizeHelper(const std::shared_ptr<Node>&, int);
 public:
     DoublyLinkedSortedList(); // how do I want to construct it?
@@ -28,10 +28,9 @@ public:
 
     /**
      * getTail
-     * @return *tail
+     * @return *tail.lock()
      */
     int back(); // getTail?
-
 
     // ~DoublyLinkedSortedList(); // i do need to implement it as I will need to allocate memory or stuff like that
     // or maybe I should use smartPointers or leave memory allocation to Nodes themselves ?

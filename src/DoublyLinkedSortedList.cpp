@@ -76,20 +76,42 @@ void DoublyLinkedSortedList::addValue(int num) {
  * @param node cannot be nullptr, must be dereferencable
  */
 void DoublyLinkedSortedList::showLeftToRightHelper(const std::shared_ptr<Node>& node) {
+  std::cout << node->data;
   if (node->next) {
-    std::cout << node->data << ", ";
+    std::cout << ", ";
     showLeftToRightHelper(node->next);
   } else {
     return;
   }
 }
 
+/**
+ * @param node cannot be nullptr, must be dereferencable
+ */
+void DoublyLinkedSortedList::showRightToLeftHelper(const std::weak_ptr<Node>& node) {
+  std::cout << node.lock()->data;
+  if (node.lock()->prev.lock()) {
+    std::cout << ", ";
+    showRightToLeftHelper(node.lock()->prev);
+  } else {
+    return;
+  }
+}
+
 void DoublyLinkedSortedList::showLeftToRight() {
-  std::cout << '{';
+  std::cout << "H{ ";
   if (head) {
     showLeftToRightHelper(head);
   }
-  std::cout << "}\n";
+  std::cout << " }T\n";
+}
+
+void DoublyLinkedSortedList::showRightToLeft() {
+  std::cout << "T{ ";
+  if (tail.lock()) {
+    showRightToLeftHelper(tail);
+  }
+  std::cout << " }H\n";
 }
 
 int DoublyLinkedSortedList::sizeHelper(const std::shared_ptr<Node>& node, int acc = 1) { // NOLINT(misc-no-recursion)
@@ -128,3 +150,6 @@ void DoublyLinkedSortedList::removeList() {
   head = nullptr;
   tail = head;
 }
+
+
+
