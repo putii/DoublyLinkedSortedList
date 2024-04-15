@@ -3,8 +3,9 @@ cmake_minimum_required(VERSION 3.26)
 project(CmakeConfigPackageTests
         LANGUAGES CXX)
 
-
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g") # may not be needed
+# I DO NOT WANT BELOW, HERE IS WHY: https://stackoverflow.com/a/23995391/19280755
+# set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g") # may not be needed
+# message("Tests Debug flags: ${CMAKE_CXX_FLAGS_DEBUG}")
 #################### GOOGLE TESTS ####################
 
 add_executable(testsTarget tests.cpp)
@@ -20,7 +21,7 @@ message(VERBOSE "testsTarget OPTIONS: ${OPTIONS}")
 target_link_libraries(testsTarget
     PRIVATE doublyLinkedList::doublyLinkedList_warnings
             doublyLinkedList::doublyLinkedList_options
-
+            optimization_flags_interface_library # optimization flag -O<[0,1,2,3]>
             gtest_main
             DoublyLinkedSortedList)
 

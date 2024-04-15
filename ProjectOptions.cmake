@@ -157,6 +157,14 @@ macro(doublyLinkedList_local_options)
   add_library(doublyLinkedList_warnings INTERFACE)
   add_library(doublyLinkedList_options INTERFACE)
 
+  ######### MY OWN INTERFACE LIBRARIES AKA "OPTIONS" AND ITS SETTING #########
+
+  add_library(optimization_flags_interface_library INTERFACE)
+  target_compile_options(optimization_flags_interface_library INTERFACE
+    -O0 # HERE YOU SET OPTIMISATION FLAG ...
+  )
+
+  ############################################################################
   include(cmake/CompilerWarnings.cmake)
   doublyLinkedList_set_project_warnings(
           doublyLinkedList_warnings

@@ -66,7 +66,7 @@ include(cmake/PreventInSourceBuilds.cmake)
 # Project options - can be edited to fulfill project needs
 include(ProjectOptions.cmake)
 
-# there goes all build options, especially compile flags, chosen sanitizers, fuzz testing etc.
+# there go all build options, especially compile flags, chosen sanitizers, fuzz testing etc.
 doublyLinkedList_setup_options() # defined in ./ProjectOptions.cmake
 
 
@@ -75,6 +75,8 @@ doublyLinkedList_setup_options() # defined in ./ProjectOptions.cmake
 #  - ASAN + UBSAN (_supports_sanitizers MACRO)
 #  - hardening (about UBSAN minimal runtime feature)
 doublyLinkedList_global_options() # defined in ./ProjectOptions.cmake
+
+
 
 include(Dependencies.cmake)
 
@@ -90,10 +92,14 @@ doublyLinkedList_local_options() # defined in ./ProjectOptions.cmake
 # Printing of set doublyLinkedList_warnings and doublyLinkedList_options INTERFACE libraries properties
 
 get_target_property(WARNINGS doublyLinkedList_warnings INTERFACE_COMPILE_OPTIONS)
-message(VERBOSE "doublyLinkedList_warnings INTERFACE_COMPILE_OPTIONS: ${WARNINGS}")
+message(AUTHOR_WARNING "doublyLinkedList_warnings INTERFACE_COMPILE_OPTIONS: ${WARNINGS}")
 
 get_target_property(OPTIONS doublyLinkedList_options INTERFACE_COMPILE_OPTIONS)
-message(VERBOSE "doublyLinkedList_options INTERFACE_COMPILE_OPTIONS: ${OPTIONS}")
+message(AUTHOR_WARNING "doublyLinkedList_options INTERFACE_COMPILE_OPTIONS: ${OPTIONS}")
+
+get_target_property(OPTIMIZATION_FLAG optimization_flags_interface_library INTERFACE_COMPILE_OPTIONS)
+message(AUTHOR_WARNING "optimization_flags_interface_library INTERFACE_COMPILE_OPTIONS: ${OPTIMIZATION_FLAG}")
+
 
 # don't know if this should be set globally from here or not...
 # IFD What the fck it is
