@@ -2,13 +2,10 @@ cmake_minimum_required(VERSION 3.26)
 
 project(
   doublyLinkedList
-  VERSION 0.0.1
+  VERSION 1.0
   DESCRIPTION ""
   HOMEPAGE_URL ""
   LANGUAGES CXX) # This enables the CXX (C++) language and triggers compiler detection
-
-# As you use CMakePresets.json and run with its values - I think linker should be set there, hardcoded
-
 
 # Tools used for debuging purposes
 message("C++ compiler ID: ${CMAKE_CXX_COMPILER_ID}") # added to show what compiler is chosen
@@ -178,8 +175,6 @@ doublyLinkedList_package_project(
         main # target created by "add_executable(main main.cpp)" command in src/CMakeLists.txt
         doublyLinkedList_options # cmake interface library, i.e. options flags
         doublyLinkedList_warnings # cmake interface library, i.e. warnings flags
-        # FIXME: this does not work! CK
-        # PRIVATE_DEPENDENCIES_CONFIGURED project_options project_warnings
 )
 
 # Experience shows that explicit package naming can help make it easier to sort

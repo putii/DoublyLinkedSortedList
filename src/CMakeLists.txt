@@ -34,7 +34,9 @@ target_include_directories(DoublyLinkedSortedList
   # but if we did PRIVATE include above these includes wouldnt be visible for our test target
   # after linking DoublyLinkedSortedList
 
-target_link_libraries(DoublyLinkedSortedList PRIVATE optimization_flags_interface_library)
+target_link_libraries(DoublyLinkedSortedList
+        PRIVATE Node # we are linking Node static library to DLSList library
+        PRIVATE optimization_flags_interface_library)
 
 
 ################### MAIN BINARY ###################

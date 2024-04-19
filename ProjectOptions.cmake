@@ -32,9 +32,9 @@ macro(doublyLinkedList_supports_sanitizers)
 endmacro()
 
 macro(doublyLinkedList_setup_options)
-  # Make DEBUG messages visible for CMAKE_BUILD_TYPE="Debug"
   if(CMAKE_BUILD_TYPE MATCHES Debug)
-    set(CMAKE_MESSAGE_LOG_LEVEL DEBUG)
+    set(CMAKE_MESSAGE_LOG_LEVEL DEBUG) # Make messages of type DEBUG visible for CMAKE_BUILD_TYPE="Debug"
+    add_compile_definitions(DEBUG) # so that you can use #ifdef DEBUG <CODE> #endif for code to be added only in DEBUG builds
   endif()
 
   # rest of setup

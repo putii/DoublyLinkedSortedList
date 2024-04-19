@@ -10,6 +10,18 @@ TEST(DoublyLinkedSortedList, NullSharedPtrsTest) {
   EXPECT_FALSE(bool(nullSharedPtr1));
 }
 
+TEST(DoublyLinkedSortedList, DefaultInitSharedPtrsTest) {
+  std::shared_ptr<Node> nullSharedPtr1;
+  EXPECT_FALSE(bool(nullSharedPtr1));
+}
+
+
+TEST(DoublyLinkedSortedList, DefaultInitWeakPtr) {
+  // I try to recreate list constructor problems
+  std::weak_ptr<Node> nullWeakPtr;
+  EXPECT_FALSE(bool(nullWeakPtr.lock()));
+}
+
 TEST(DoublyLinkedSortedList, WeakPtrPointsAtSharedPtr) {
   // I try to recreate list constructor problems
   std::shared_ptr<Node> nullShPtr{ nullptr };
@@ -55,11 +67,24 @@ TEST(DoublyLinkedSortedList, InsertionInEmptyList) {
   EXPECT_EQ(list.front(), val);
 }
 
+TEST(DoublyLinkedSortedList, FourTheSameValsSize) {
+  const int val{ 42 };
+  const int count{ 4 };
+  DoublyLinkedSortedList list;
+  for ([[maybe_unused]] auto _ : std::views::iota(0, count)) {
+    std::cout << "Calling list.addValue(" << val << ");" << '\n';
+    list.addValue(val);
+  }
+
+  EXPECT_EQ(list.size(), count);
+}
+
 TEST(DoublyLinkedSortedList, ThreeTheSameVals) {
   const int val{ 42 };
   const int count{ 3 };
   DoublyLinkedSortedList list;
   for ([[maybe_unused]] auto _ : std::views::iota(0, count)) {
+    std::cout << "Calling list.addValue(" << val << ");" << '\n';
     list.addValue(val);
   }
 
@@ -68,6 +93,8 @@ TEST(DoublyLinkedSortedList, ThreeTheSameVals) {
   EXPECT_EQ(list.size(), count);
   EXPECT_EQ(list.front(), val);
 }
+
+
 
 TEST(DoublyLinkedSortedList, Add1234) {
   const std::array vals{ 1, 2, 3, 4 };
@@ -159,4 +186,8 @@ TEST(DoublyLinkedSortedList, longerList) {
 
   EXPECT_FALSE(list.empty());
   EXPECT_EQ(list.size(), vals.size());
+
+  std::shared_ptr<Node> sharedPtr;
+  std::weak_ptr<Node> weakPtr;
+
 }
